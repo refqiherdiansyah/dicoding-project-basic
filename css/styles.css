@@ -1,0 +1,183 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  align-items: center;
+}
+
+header {
+  background-color: #570d0d;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap; /* Responsive for child elements */
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.container-article {
+  display: flex;
+  width: 100%;
+  gap: 20px; /* Space between elements */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#baru {
+  flex: 2; /* Larger width for main content */
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#rekomendasi-product {
+  flex: 1; /* Smaller width for sidebar */
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#baru img,
+#rekomendasi-product img,
+.card-front img {
+  max-width: 100%; /* Maintain responsive images */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.card-container {
+  perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 90px 0;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.6s;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.card-front {
+  background-color: #fff;
+}
+
+.card-back {
+  background-color: #4CAF50;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Responsive Styles */
+
+/* Mobile Devices (Samsung A51 and similar) */
+@media (max-width: 420px) {
+  #baru,
+  #rekomendasi-product {
+    flex: 1 1 100%; /* Full width for smaller screens */
+    padding: 10px;
+  }
+
+  .card {
+    width: 100%; /* Full width for cards */
+    height: auto; /* Adjust height automatically */
+  }
+}
+
+/* Tablets and Small Laptops */
+@media (min-width: 421px) and (max-width: 768px) {
+  #baru,
+  #rekomendasi-product {
+    flex: 1 1 100%; /* Full width for smaller screens */
+    padding: 15px;
+  }
+
+  .card {
+    width: calc(50% - 20px); /* Two cards per row */
+    height: auto; /* Adjust height automatically */
+  }
+}
+
+/* Desktops */
+@media (min-width: 769px) {
+  #baru {
+    flex: 2; /* Larger width for content area */
+  }
+
+  #rekomendasi-product {
+    flex: 1; /* Smaller width for sidebar */
+  }
+
+  .card {
+    width: 370px; /* Fixed width for cards */
+    height: 200px; /* Fixed height for cards */
+  }
+}
